@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Tema principal de la app -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+      <!-- evita que Android invierta colores en modo oscuro -->
+      <item name="android:forceDarkAllowed">false</item>
+      <!-- iconos oscuros en la status bar -->
+      <item name="android:windowLightStatusBar">true</item>
+      <item name="android:statusBarColor">@android:color/white</item>
+    </style>
+
+    <!-- Tema sin ActionBar (uso general) -->
+    <style name="AppTheme.NoActionBar" parent="Theme.AppCompat.DayNight.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+        <item name="android:background">@null</item>
+    </style>
+
+    <!-- Tema de Lanzamiento / Splash: usa un drawable (layer-list) -->
+    <style name="AppTheme.Launcher" parent="Theme.AppCompat.Light.NoActionBar">
+      <item name="android:windowBackground">@drawable/splash</item>
+      <item name="android:windowNoTitle">true</item>
+      <item name="android:windowFullscreen">true</item>
+      <item name="android:forceDarkAllowed">false</item>
+    </style>
+
+</resources>

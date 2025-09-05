@@ -1,2 +1,28 @@
 // For information on how to create your own theme, please see:
 // http://ionicframework.com/docs/theming/
+/* ===== Tema claro por defecto ===== */
+:root {
+  /* Colores base claros */
+  --ion-color-primary: #4e8cff;
+  --ion-color-primary-contrast: #ffffff;
+
+  --ion-background-color: #ffffff;
+  --ion-background-color-rgb: 255,255,255;
+  --ion-text-color: #1f2937; /* gris 800 */
+
+  --ion-toolbar-background: #ffffff;
+  --ion-toolbar-color: var(--ion-text-color);
+
+  --ion-item-background: #ffffff;
+  --ion-card-background: #f8fafc; /* gris muy claro */
+}
+
+/* Fuerza tema claro aunque el SO esté en oscuro */
+@media (prefers-color-scheme: dark) {
+  :root {
+    color-scheme: light;
+    --ion-background-color: #ffffff;
+    --ion-text-color: #1f2937;
+    --ion-toolbar-background: #ffffff;
+  }
+}

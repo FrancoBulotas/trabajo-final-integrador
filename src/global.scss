@@ -35,3 +35,16 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+/* Fondo claro en todo ion-content */
+ion-content {
+  --background: var(--ion-background-color);
+  /* Un poco más de aire arriba + área segura del notch */
+  --padding-top: calc(env(safe-area-inset-top) + 12px);
+}
+
+/* Headers claros por si alguna página no lo setea */
+ion-header, ion-toolbar {
+  --background: var(--ion-toolbar-background);
+  --color: var(--ion-toolbar-color);
+}

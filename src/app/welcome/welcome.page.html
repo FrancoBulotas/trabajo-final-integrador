@@ -1,0 +1,13 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Bienvenido</ion-title>
+    <ion-buttons slot="end">
+      <ion-button color="danger" (click)="logout()">Cerrar sesión</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <h2>Hola {{ userName }}</h2>
+  <p>Te logueaste correctamente!</p>
+</ion-content>

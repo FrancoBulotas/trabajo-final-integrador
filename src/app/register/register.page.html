@@ -1,0 +1,124 @@
+<ion-header>
+  <ion-toolbar color="light">
+    <ion-title>Registro</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form [formGroup]="form" (ngSubmit)="register()">
+
+    <!-- Nombre -->
+    <ion-item>
+      <ion-label position="floating">Nombre completo</ion-label>
+      <ion-input formControlName="fullName"></ion-input>
+    </ion-item>
+    @if (showError('fullName','required')) {
+      <ion-text color="danger">
+        <p class="ion-padding-start">El nombre es obligatorio</p>
+      </ion-text>
+    }
+    @if (showError('fullName','minlength')) {
+      <ion-text color="danger">
+        <p class="ion-padding-start">Mínimo 3 caracteres</p>
+      </ion-text>
+    }
+
+    <!-- Correo -->
+    <ion-item>
+      <ion-label position="floating">Correo</ion-label>
+      <ion-input formControlName="email" type="email"></ion-input>
+    </ion-item>
+    @if (showError('email','required')) {
+      <ion-text color="danger">
+        <p class="ion-padding-start">El correo es obligatorio</p>
+      </ion-text>
+    }
+    @if (showError('email','email')) {
+      <ion-text color="danger">
+        <p class="ion-padding-start">Correo inválido</p>
+      </ion-text>
+    }
+
+    <!-- Contraseña -->
+    <ion-item>
+      <ion-label position="floating">Contraseña</ion-label>
+      <ion-input formControlName="password" type="password"></ion-input>
+    </ion-item>
+    @if (showError('password','required')) {
+      <ion-text color="danger">
+        <p class="ion-padding-start">La contraseña es obligatoria</p>
+      </ion-text>
+    }
+    @if (showError('password','minlength')) {
+      <ion-text color="danger">
+        <p class="ion-padding-start">Mínimo 6 caracteres</p>
+      </ion-text>
+    }
+
+    <!-- Botones -->
+    <ion-button class="ion-margin-top" expand="block" type="submit" [disabled]="loading || form.invalid">
+      @if (loading) {
+        <ion-spinner name="crescent" class="ion-margin-end"></ion-spinner>
+      }
+      {{ loading ? 'Creando...' : 'Crear cuenta' }}
+    </ion-button>
+    <ion-button expand="block" fill="clear" routerLink="/login">Ya tengo cuenta</ion-button>
+
+    <!-- Acceso rápido -->
+    <ion-card class="ion-margin-top">
+      <ion-card-header>
+        <ion-card-subtitle>Usuarios de prueba</ion-card-subtitle>
+      </ion-card-header>
+      <ion-card-content>
+        <ion-grid class="test-grid">
+          <ion-row>
+            <ion-col size="12" sizeMd="4">
+              <ion-button
+                expand="block"
+                class="test-btn test-1"
+                (click)="quickLogin('test1@example.com','123456')">
+                <div class="btn-content">
+                  <div class="title">Usuario de prueba 1</div>
+                  <div class="subtitle">test1@example.com</div>
+                </div>
+              </ion-button>
+            </ion-col>
+
+            <ion-col size="12" sizeMd="4">
+              <ion-button
+                expand="block"
+                class="test-btn test-2"
+                (click)="quickLogin('test2@example.com','123456')">
+                <div class="btn-content">
+                  <div class="title">Usuario de prueba 2</div>
+                  <div class="subtitle">test2@example.com</div>
+                </div>
+              </ion-button>
+            </ion-col>
+
+            <ion-col size="12" sizeMd="4">
+              <ion-button
+                expand="block"
+                class="test-btn test-3"
+                (click)="quickLogin('test3@example.com','123456')">
+                <div class="btn-content">
+                  <div class="title">Usuario de prueba 3</div>
+                  <div class="subtitle">test3@example.com</div>
+                </div>
+              </ion-button>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+
+    <!-- Toast -->
+    <ion-toast
+      [isOpen]="showToast"
+      [message]="toastMessage"
+      [color]="toastColor"
+      duration="3000"
+      (didDismiss)="showToast = false">
+    </ion-toast>
+  </form>
+</ion-content>

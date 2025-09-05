@@ -5,6 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 import { AppRoutingModule } from './app-routing.module';
 import { IonicModule } from '@ionic/angular';
+import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { SupabaseService } from './supabase.service';
@@ -13,6 +14,7 @@ import { SupabaseService } from './supabase.service';
   imports: [
     BrowserModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     //RouterModule.forRoot([]),
     IonicModule.forRoot({ mode: 'ios' }),
   ],
